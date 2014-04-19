@@ -25,7 +25,7 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", web.MakeHandler(web.HomeHandler, conf))
 	r.HandleFunc("/transactions/{wallet}", web.MakeHandler(web.TransactionsHandler, conf))
-	r.PathPrefix("/js/").Handler(http.StripPrefix("/js/", http.FileServer(http.Dir("/home/zaibon/dev/go/src/github.com/Zaibon/thewallet/static/js/"))))
+	r.PathPrefix("/js/").Handler(http.StripPrefix("/js/", http.FileServer(http.Dir("static/js/"))))
 
 	log.Fatalln(http.ListenAndServe(":8080", r))
 }

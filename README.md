@@ -17,7 +17,7 @@ Complete the config.json file in the conf directory
 		"port" : 8080
 	}
 ```
-Create some configuration file for your wallets in conf/walltes
+Create some configuration file for your wallets in conf/wallets
 ```
 {
 	"enable":true,

@@ -25,7 +25,9 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", web.MakeHandler(web.HomeHandler, conf))
 	r.HandleFunc("/transactions/{wallet}", web.MakeHandler(web.TransactionsHandler, conf))
+
 	r.PathPrefix("/js/").Handler(http.StripPrefix("/js/", http.FileServer(http.Dir("static/js/"))))
+	r.PathPrefix("/css/").Handler(http.StripPrefix("/css/", http.FileServer(http.Dir("static/css/"))))
 
 	log.Fatalln(http.ListenAndServe(":8080", r))
 }

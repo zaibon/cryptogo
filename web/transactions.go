@@ -22,7 +22,7 @@ func TransactionsHandler(rw http.ResponseWriter, req *http.Request, conf *core.C
 		//value : list of transactions for this account
 		Transactions map[string][]btcjson.ListTransactionsResult
 	}{
-		Symbol:       vars["wallet"],
+		Symbol:       w.Symbol,
 		Transactions: make(map[string][]btcjson.ListTransactionsResult),
 	}
 

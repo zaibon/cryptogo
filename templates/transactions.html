@@ -16,7 +16,12 @@
 	</head>
 	<body>
 		<div class="container">
-			<div class="col-md-7">
+			<div class="col-md-2">
+				<ul class="nav nav-pills">
+				  <li><a href="/">Home</a></li>
+				</ul>
+			</div>
+			<div class="col-md-10">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h3 class="panel-title">Liste des transactions {{$symbol}}</h3>
@@ -31,14 +36,31 @@
 							{{end}}
 						</ul>
 						<div class="tab-content">
-							{{range $account,$transac := .Transactions}}
+						{{range $account,$transac := .Transactions}}
 						  <div class="tab-pane" id="{{underscorespace $account}}">
+						  	<div id="accordeon" class="panel-group">
 						  	{{range $transac}}
-						  		<p>{{timestampformat .Time " 02/01/2006 15:04:05"}} {{.Category}}{{if eq .Category "send"}} to {{else if eq .Category "receive"}} from {{end}}</p>
-									<p><strong>{{.Address}}</strong>  <span class="label">{{.Amount}}</span> {{$symbol}}</p> 
+						  		<div class="panel panel-default" data-target="{{.TxID}}">
+						  			<div class="panel-heading" >
+							  			 <p class="panel-title"  data-parent="#accordeon">
+							  			 	{{timestampformat .Time "02/01/2006 15:04:05"}} <span class="label">{{.Amount}}</span> {{$symbol}}
+							  			 	<button class="btn btn-default" data-toggle="collapse" data-target="#{{.TxID}}">detail</button>
+							  			 </p>
+						  			</div>
+						  			<div id="{{.TxID}}" class="panel-collapse collapse">
+						  				<div class="panel panel-body">
+							  				<p>{{.Category}}{{if eq .Category "send"}} to {{else if eq .Category "receive"}} from {{end}}<strong>{{.Address}}</strong></p>
+							  				<p>Transaction Id : {{.TxID}}</p>
+							  				<p>Fees: {{.Fee}}</p>
+							  				<p>Confirmations : {{.Confirmations}}</p>
+							  				<p>Block hash : {{.BlockHash}}</p>
+						  				</div>
+						  			</div>
+						  		</div>
 						  	{{end}}
+						  	</div><!-- panel-group -->
 						  </div>
-							{{end}}
+						{{end}}
 						</div>
 					{{end}}
 					</div>

@@ -1,0 +1,7 @@
+{
+	//web interface
+	//host
+	"host": "localhost",
+	//port
+	"port" : 8080
+}

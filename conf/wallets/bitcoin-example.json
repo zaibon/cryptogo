@@ -1,0 +1,11 @@
+{
+	"enable":true,
+	"name" : "bitcoin",
+    "symbol":"BTC",
+    
+    "host": "localhost",
+    "port": 19332,
+
+    "user": "bitcoinrpc",
+    "password": "YOUPASSWORD"
+}

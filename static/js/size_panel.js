@@ -6,11 +6,11 @@ $(document).ready(function(){
 	var maxHeight = 0
 	$(".panel").each(function(index,panel){
 		if (panel.clientHeight > maxHeight){
-			maxHeight = panel.style.height;
+			maxHeight = $(this).height();
 		}
 	});
 
 	$(".panel").each(function(index,panel){
-		panel.style.height = maxHeight;
+		$(this).height(maxHeight);
 	});
 });

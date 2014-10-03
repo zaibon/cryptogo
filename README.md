@@ -2,7 +2,8 @@ cryptogo
 =======
 
  One wallet to rule them all
- Cryptogo go in an interface that let you inspect all you cryptocurrency wallets in one place.
+ 
+ Cryptogo is an interface that let you inspect all you cryptocurrency wallets in one place.
  You don't need to open all of your wallet and look where are your coins. Just fire up cryptogo and have everything under control
 
 ##Installation
